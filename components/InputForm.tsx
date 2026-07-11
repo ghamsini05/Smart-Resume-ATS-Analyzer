@@ -85,10 +85,10 @@ export default function InputForm({ onAnalyze, isLoading }: InputFormProps) {
         {/* Resume Input Area */}
         <div className="flex flex-col space-y-2">
           <div className="flex justify-between items-center">
-            <label className="text-sm font-semibold text-zinc-300">Your Resume</label>
+            <label className="text-sm font-semibold text-stone-700">Your Resume</label>
             <div className="flex items-center space-x-2">
               {fileName && (
-                <span className="text-xs text-zinc-400 max-w-[150px] truncate" title={fileName}>
+                <span className="text-xs text-stone-500 max-w-[150px] truncate" title={fileName}>
                   📄 {fileName}
                 </span>
               )}
@@ -96,7 +96,7 @@ export default function InputForm({ onAnalyze, isLoading }: InputFormProps) {
                 type="button"
                 onClick={handleUploadClick}
                 disabled={isParsing || isLoading}
-                className="px-3 py-1.5 text-xs font-medium text-violet-400 border border-violet-800/60 rounded-lg hover:bg-violet-950/30 hover:border-violet-500 transition-all duration-200 disabled:opacity-50 disabled:pointer-events-none cursor-pointer"
+                className="px-3 py-1.5 text-xs font-medium text-violet-600 border border-violet-200 rounded-lg hover:bg-violet-50 hover:border-violet-400 hover:text-violet-750 transition-all duration-200 disabled:opacity-50 disabled:pointer-events-none cursor-pointer"
               >
                 {isParsing ? 'Parsing Document...' : 'Upload PDF / DOCX'}
               </button>
@@ -113,31 +113,31 @@ export default function InputForm({ onAnalyze, isLoading }: InputFormProps) {
             value={resume}
             onChange={(e) => setResume(e.target.value)}
             placeholder="Paste your full resume here or upload a document..."
-            className="h-96 w-full p-4 rounded-xl bg-zinc-900/60 border border-zinc-800/80 focus:border-violet-500 focus:ring-1 focus:ring-violet-500 text-zinc-200 placeholder-zinc-500 resize-none font-sans text-sm outline-none transition-all duration-200"
+            className="h-96 w-full p-4 rounded-xl bg-white border border-beige-300 focus:border-violet-500 focus:ring-1 focus:ring-violet-500 text-beige-900 placeholder-stone-450 resize-none font-sans text-sm outline-none shadow-sm transition-all duration-200"
           />
         </div>
 
         {/* Job Description Input Area */}
         <div className="flex flex-col space-y-2">
-          <label className="text-sm font-semibold text-zinc-300">Job Description</label>
+          <label className="text-sm font-semibold text-stone-700">Job Description</label>
           <textarea
             value={jd}
             onChange={(e) => setJd(e.target.value)}
             placeholder="Paste the target job description here..."
-            className="h-96 w-full p-4 rounded-xl bg-zinc-900/60 border border-zinc-800/80 focus:border-violet-500 focus:ring-1 focus:ring-violet-500 text-zinc-200 placeholder-zinc-500 resize-none font-sans text-sm outline-none transition-all duration-200"
+            className="h-96 w-full p-4 rounded-xl bg-white border border-beige-300 focus:border-violet-500 focus:ring-1 focus:ring-violet-500 text-beige-900 placeholder-stone-450 resize-none font-sans text-sm outline-none shadow-sm transition-all duration-200"
           />
         </div>
       </div>
 
       {/* Warnings & Errors */}
       {parseWarning && (
-        <div className="p-4 bg-amber-950/30 border border-amber-900/50 rounded-xl text-amber-300 text-xs leading-relaxed">
+        <div className="p-4 bg-amber-50 border border-amber-200 rounded-xl text-amber-800 text-xs leading-relaxed shadow-sm">
           ⚠️ {parseWarning}
         </div>
       )}
 
       {error && (
-        <div className="p-4 bg-rose-950/30 border border-rose-900/50 rounded-xl text-rose-300 text-xs leading-relaxed animate-pulse">
+        <div className="p-4 bg-rose-50 border border-rose-200 rounded-xl text-rose-800 text-xs leading-relaxed shadow-sm">
           ⚠️ {error}
         </div>
       )}
@@ -147,7 +147,7 @@ export default function InputForm({ onAnalyze, isLoading }: InputFormProps) {
         <button
           type="submit"
           disabled={isLoading || isParsing}
-          className="w-full md:w-64 px-6 py-3 rounded-xl bg-gradient-to-r from-violet-600 to-fuchsia-600 text-white font-medium hover:from-violet-500 hover:to-fuchsia-500 shadow-[0_0_20px_rgba(139,92,246,0.3)] hover:shadow-[0_0_25px_rgba(139,92,246,0.5)] transition-all duration-300 disabled:opacity-50 disabled:pointer-events-none cursor-pointer flex items-center justify-center space-x-2"
+          className="w-full md:w-64 px-6 py-3 rounded-xl bg-gradient-to-r from-violet-600 to-fuchsia-600 text-white font-medium hover:from-violet-500 hover:to-fuchsia-500 shadow-md shadow-violet-500/20 hover:shadow-lg hover:shadow-violet-500/35 transition-all duration-300 disabled:opacity-50 disabled:pointer-events-none cursor-pointer flex items-center justify-center space-x-2"
         >
           {isLoading ? (
             <>
